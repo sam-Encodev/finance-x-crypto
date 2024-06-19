@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "@tamagui/core/reset.css";
+import Main from "./src/Main.js";
+import { TamaguiProvider, createTamagui } from "tamagui";
+import { config } from "@tamagui/config/v3";
+import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { SheetProvider } from "react-native-actions-sheet";
+import "./src/app/components/actionSheets/sheets.js";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+const appConfig = createTamagui(config);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <TamaguiProvider config={appConfig}>
+        <SheetProvider>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <StatusBar style="auto" />
+            <Main />
+          </GestureHandlerRootView>
+        </SheetProvider>
+      </TamaguiProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
