@@ -36,7 +36,7 @@ export const CommunityGuidelinesRoute = "Community Guidelines";
 export const defaultUserImage = "https://picsum.photos/200/300";
 export const ReferralRoute = "Referral";
 export const CryptoFavoritesRoute = "CryptoFavorites";
-export const MyFunds = "My Funds";  
+export const MyFunds = "My Funds";
 
 export const currency = "$";
 export const amount = "100";
