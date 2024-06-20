@@ -1,8 +1,7 @@
-import { StateStorage } from 'zustand/middleware';
-import { MMKV } from 'react-native-mmkv';
+import { MMKV } from "react-native-mmkv";
 
 const storage = new MMKV({
-  id: 'balance-storage',
+  id: "balance-storage",
 });
 
 export const zustandStorage = {
@@ -17,3 +16,11 @@ export const zustandStorage = {
     return storage.delete(name);
   },
 };
+
+export const listener = storage.addOnValueChangedListener(
+  (changedKey = "user.name") => {
+    // const newValue = storage.getString(changedKey);
+    const newValue = zustandStorage.getItem(changedKey);
+    console.log(`"${changedKey}" new value: ${newValue}`);
+  }
+);

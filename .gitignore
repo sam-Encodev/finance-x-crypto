@@ -36,3 +36,6 @@ yarn-error.*
 src/app/components/Tabs copy.js
 src/store/balanceStore copy.js
 src/app/components/Tabs copy.js
+src/store/mmkv-storage.js
+/ios
+/android

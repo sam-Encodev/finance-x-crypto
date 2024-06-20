@@ -1,6 +1,6 @@
 import { View, Text, XStack, Button } from "tamagui";
 import { TouchableOpacity } from "react-native";
-import { Settings, ChevronLeft, BellDot } from "@tamagui/lucide-icons";
+import { Settings, ChevronLeft, BellDot, Hammer } from "@tamagui/lucide-icons";
 import {
   defaultUser,
   SettingsRoute,
@@ -88,14 +88,16 @@ const HeaderCustom = ({ navigation, routName = NotificationsRoute }) => {
           <Header.Avatar navigation={navigation} />
           <Header.Title />
         </XStack>
-        <Button
-          icon={<BellDot />}
-          circular
-          size={40}
-          color={black}
-          onPress={() => navigation.navigate(routName)}
-          theme="active"
-        />
+        <XStack gap={7} alignItems="center">
+          <Button
+            icon={<BellDot />}
+            circular
+            size={40}
+            color={black}
+            onPress={() => navigation.navigate(routName)}
+            theme="active"
+          />
+        </XStack>
       </XStack>
     </BlurView>
   );

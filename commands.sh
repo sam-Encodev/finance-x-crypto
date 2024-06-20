@@ -27,7 +27,6 @@ bun add tamagui
 bun add zustand
 bun add victory-native
 bun add react-native-svg
-bun add react-native-mmkv
 bun add react-native-screens
 bun add react-native-blurhash
 bun add react-native-shadow-2
@@ -37,6 +36,9 @@ bun add react-native-action-button
 bun add react-native-qrcode-styled
 bun add react-native-ios-utilities
 bun add react-native-actions-sheet
+# bunx expo install react-native-mmkv
+# bunx expo prebuild
+bunx expo install expo-system-ui
 bun add react-native-swipeable-list
 bun add react-native-gesture-handler
 bun add react-native-floating-action
