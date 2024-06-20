@@ -8,9 +8,10 @@ import { store } from "../../../store";
 
 export default function CheckboxDemo() {
   const { cryptos } = store((state) => state);
-  
+
   let select = [];
   const [count, setCount] = useState(0);
+  const [text, setText] = React.useState("Select");
 
   const handleClick = (e, item) => {
     const itemID = item.id;
