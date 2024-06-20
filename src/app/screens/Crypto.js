@@ -3,14 +3,20 @@ import { sheetManager } from "../utils";
 import Tabber from "../components/Tabs";
 import { Plus } from "@tamagui/lucide-icons";
 import CryptoList from "../components/crypto/CryptoList";
-import { trimCoins } from "../constants/crypto/coin";
 import MainBalance from "../components/cards/crypto/MainBalance";
 import { View, ScrollView, XStack, Button, YStack } from "tamagui";
 import ListHeaderComponent from "../components/ListHeaderComponent";
 import { pageMargin, black, white, textWeight } from "../constants/styles";
-import { CoinsRoute, cryptoMenus, CryptoFavoritesRoute } from "../constants";
+import {
+  CoinsRoute,
+  cryptoMenus,
+  CryptoFavoritesRoute,
+  MyFunds,
+} from "../constants";
+import { store } from "../../store";
 
 export default function Crypto({ navigation }) {
+  const { trimCoins } = store((state) => state);
   const route = CryptoFavoritesRoute;
 
   const handleItemClick = () => {
@@ -31,7 +37,7 @@ export default function Crypto({ navigation }) {
               data={trimCoins}
               navigation={navigation}
               route={CoinsRoute}
-              text="My Funds"
+              text={MyFunds}
             />
 
             <XStack gap={6} height={150}>

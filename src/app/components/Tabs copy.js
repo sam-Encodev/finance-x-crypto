@@ -3,12 +3,11 @@ import MostPopular from "./crypto/MostPopular";
 import BiggestMovers from "./crypto/BiggestMovers";
 import Recommendations from "./crypto/Recommendations";
 import { AnimatePresence, View, Text, Tabs, YStack, styled } from "tamagui";
-import { coins, trimCoins, newTrimCoins } from "../constants/crypto/coin";
 
 const tabContent = {
-  tab1: <MostPopular data={coins} />,
-  tab2: <BiggestMovers data={trimCoins} />,
-  tab3: <Recommendations data={newTrimCoins} />,
+  tab1: <MostPopular />,
+  tab2: <BiggestMovers />,
+  tab3: <Recommendations />,
 };
 
 const Tabber = ({ menu }) => {

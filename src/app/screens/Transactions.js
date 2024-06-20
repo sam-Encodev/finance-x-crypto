@@ -1,18 +1,18 @@
 import React from "react";
 import { View, Button } from "tamagui";
-import { transactions } from "../constants";
 import { Activity } from "@tamagui/lucide-icons";
 import { BlurView } from "expo-blur";
 import { borderRadius, pageMargin, black, white } from "../constants/styles";
 import ItemList from "../components/ItemList";
+import { store } from "../../store";
 
 export default function Transactions({ navigation, route }) {
-  const getTransactions = transactions || [];
+  const {transactions} = store((state) => state);
 
   return (
     <View>
       <View margin={pageMargin}>
-        <ItemList data={getTransactions} route={route} />
+        <ItemList data={transactions} route={route} />
       </View>
 
       <BlurView

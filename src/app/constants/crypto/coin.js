@@ -159,7 +159,3 @@ export const coins = [
     last_price: 559.6,
   },
 ];
-
-const copyCoins = [...coins];
-export const trimCoins = copyCoins.splice(-6);
-export const newTrimCoins = [...copyCoins].reverse();

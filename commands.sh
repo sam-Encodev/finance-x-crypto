@@ -24,6 +24,7 @@ bunx expo install expo-build-properties
 
 bun add zeego
 bun add tamagui
+bun add zustand
 bun add victory-native
 bun add react-native-svg
 bun add react-native-mmkv

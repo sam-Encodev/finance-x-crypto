@@ -3,10 +3,12 @@ import { useState } from "react";
 import { Checkbox } from "tamagui";
 import HeaderItem from "./HeaderItem";
 import EmptyState from "../EmptyState";
-import { coins } from "../../constants/crypto/coin";
 import { FlatList } from "react-native-actions-sheet";
+import { store } from "../../../store";
 
 export default function CheckboxDemo() {
+  const { cryptos } = store((state) => state);
+  
   let select = [];
   const [count, setCount] = useState(0);
 
@@ -29,11 +31,11 @@ export default function CheckboxDemo() {
       return;
     }
   };
-  
+
   return (
     <FlatList
       ListEmptyComponent={<EmptyState />}
-      data={coins}
+      data={cryptos}
       keyExtractor={(item) => item.id}
       contentContainerStyle={{ gap: 10 }}
       showsVerticalScrollIndicator={false}

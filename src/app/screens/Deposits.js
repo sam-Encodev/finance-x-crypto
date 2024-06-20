@@ -1,18 +1,18 @@
 import { View, Button } from "tamagui";
-import { transactions } from "../constants";
 import React from "react";
 import { Activity } from "@tamagui/lucide-icons";
 import { BlurView } from "expo-blur";
 import { borderRadius, pageMargin, black, white } from "../constants/styles";
 import ItemList from "../components/ItemList";
+import { store } from "../../store";
 
 export default function Deposits({ route }) {
-  const getDeposits = transactions.filter((data) => data.type === "deposit");
+  const {deposits} = store((state) => state);
 
   return (
     <View height="100%">
       <View margin={pageMargin}>
-        <ItemList data={getDeposits} route={route} />
+        <ItemList data={deposits} route={route} />
       </View>
 
       {/* <FloatingAction

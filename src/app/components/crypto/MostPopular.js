@@ -1,7 +1,8 @@
 import React from "react";
 import CryptoList from "./CryptoList";
-import { coins } from "../../constants/crypto/coin";
+import { store } from "../../../store";
 
 export default function MostPopular() {
-  return <CryptoList data={coins} scrollEnabled={false} />;
+  const { cryptos } = store((state) => state);
+  return <CryptoList data={cryptos} scrollEnabled={false} />;
 }

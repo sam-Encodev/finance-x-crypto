@@ -1,22 +1,16 @@
 import { TextInput } from "react-native";
-import {
-  View,
-  XStack,
-  YStack,
-  Button,
-  PortalProvider,
-} from "tamagui";
+import { View, XStack, YStack, Button, PortalProvider } from "tamagui";
 import { useEffect } from "react";
 import { CartesianChart, Line, useChartPressState } from "victory-native";
 import { Circle } from "@shopify/react-native-skia";
 import * as Haptics from "expo-haptics";
 import Animated, { useAnimatedProps } from "react-native-reanimated";
 import { Bell, NotebookPen } from "@tamagui/lucide-icons";
-import { coins } from "../constants/crypto/coin";
 import Balance from "../components/cards/crypto/Balance";
 import { dark, gray, red, white } from "../constants/styles";
 import { getColor, valueChange } from "../utils";
 import CryptoAlert from "../components/crypto/Alerts";
+import { store } from "../../store";
 
 Animated.addWhitelistedNativeProps({ text: true });
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
@@ -26,8 +20,9 @@ function ToolTip({ x, y }) {
 }
 
 const Coin = ({ navigation, route }) => {
+  const { cryptos } = store((state) => state);
   const { coin_id } = route.params;
-  const findCoin = coins.filter((data) => data.id === coin_id);
+  const findCoin = cryptos.filter((data) => data.id === coin_id);
   const getCoin = findCoin[0];
   const getCoinHistory = getCoin.history;
   const { state, isActive } = useChartPressState({ x: 0, y: { price: 0 } });

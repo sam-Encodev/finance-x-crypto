@@ -1,19 +1,18 @@
 import { View, Button } from "tamagui";
-import { transactions } from "../constants";
 import React from "react";
 import { Activity } from "@tamagui/lucide-icons";
 import { BlurView } from "expo-blur";
 import { borderRadius, pageMargin, black, white } from "../constants/styles";
 import ItemList from "../components/ItemList";
+import { store } from "../../store";
 
 export default function Withdrawals({ navigation, route }) {
-  const getWithdrawals = transactions.filter(
-    (data) => data.type === "withdrawal"
-  );
+  const { withdrawals } = store((state) => state);
+
   return (
     <View height="100%">
       <View margin={pageMargin}>
-        <ItemList data={getWithdrawals} route={route} />
+        <ItemList data={withdrawals} route={route} />
       </View>
 
       <BlurView
