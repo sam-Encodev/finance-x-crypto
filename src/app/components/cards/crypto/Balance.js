@@ -1,5 +1,4 @@
 import { XStack, YStack, Text } from "tamagui";
-import React from "react";
 import {
   shortenAmount,
   valueChange,
@@ -16,8 +15,8 @@ import {
 export default function Balance({
   headerText = "Main Balance",
   values = {
-    current_amount: 80732.32 || 0.0,
-    last_amount: 79355.67 || 0.0,
+    current_amount: 0.0,
+    last_amount: 0.0,
   },
 }) {
   return (

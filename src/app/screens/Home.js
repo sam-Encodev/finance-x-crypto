@@ -16,23 +16,22 @@ import {
 } from "../constants/styles";
 import LimitedTransactionList from "../components/LimitedTransactionList";
 import CheckboxDemo from "../components/checkbox/CheckBox";
-
-const availableBalance = "0.00";
-const hideBalance = "******";
+import { store } from "../../store";
 
 export default function Home({ navigation }) {
+  const { wallet } = store((state) => state);
   const headerHeight = useHeaderHeight();
   const [state, setState] = useState(false);
-  const [balance, setBalance] = useState(hideBalance);
+  const [balance, setBalance] = useState(wallet.hideBalance);
 
   const handleShow = () => {
     setState(true);
-    setBalance(availableBalance);
+    setBalance(wallet.cashBalance.toFixed(2));
   };
 
   const handleHide = () => {
     setState(false);
-    setBalance(hideBalance);
+    setBalance(wallet.hideBalance);
   };
 
   return (

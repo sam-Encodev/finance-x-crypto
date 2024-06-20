@@ -8,12 +8,14 @@ import {
   black,
 } from "../../../constants/styles";
 import Balance from "./Balance";
+import { store } from "../../../../store";
 
 export default function MainBalance() {
+  const { wallet } = store((state) => state);
   return (
     <Card bordered size="$4" padding={cardPadding}>
       <YStack gap={10}>
-        <Balance />
+        <Balance values={wallet.crypto} />
 
         <XStack justifyContent="space-between">
           <Button
